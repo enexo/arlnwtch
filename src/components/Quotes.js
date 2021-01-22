@@ -40,9 +40,11 @@ function Quotes() {
     useEffect(() => {
         const fetchData = async () => {
             //pull the data set for Stock Quotes
-            const quotes = await api.get('https://financialmodelingprep.com/api/v3/quote/AAL,DAL,LUV,UAL,ALK,JBLU?apikey=d03d806587d24c92dfe0850c1b942656');
-            const funds = await api.get('https://financialmodelingprep.com/api/v3/quotes/index?apikey=d03d806587d24c92dfe0850c1b942656');
-            const commodity = await api.get('https://financialmodelingprep.com/api/v3/quote/CLUSD?apikey=d03d806587d24c92dfe0850c1b942656');
+            const apiKey = 'd03d806587d24c92dfe0850c1b942656';
+
+            const quotes = await api.get('https://financialmodelingprep.com/api/v3/quote/AAL,DAL,LUV,UAL,ALK,JBLU?apikey=' + apiKey);
+            const funds = await api.get('https://financialmodelingprep.com/api/v3/quotes/index?apikey=' + apiKey);
+            const commodity = await api.get('https://financialmodelingprep.com/api/v3/quote/CLUSD?apikey=' + apiKey);
 
             //Ticker Change vars
             const upTick = "++";
