@@ -47,22 +47,22 @@ function Metrics () {
     const [jbluPTB,setJBLUPTB] = useState('Loading...');
     //Dividend Yield useStates
     const [aalDY,setAALDY] = useState('Loading...');
-    const [ualDY,setUALDY] = useState('Loading...');
     const [dalDY,setDALDY] = useState('Loading...');
     const [swalDY,setSWALDY] = useState('Loading...');
     const [alkDY,setALKDY] = useState('Loading...');
-    const [jbluDY,setJBLUDY] = useState('Loading...');
     
     // Data Pulls
     useEffect(() => {
         const fetchData = async () => {
             //pull the data sets for each company
-            const AAL = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/AAL?limit=40&apikey=d03d806587d24c92dfe0850c1b942656');
-            const UAL = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/UAL?limit=40&apikey=d03d806587d24c92dfe0850c1b942656');
-            const DAL = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/DAL?limit=40&apikey=d03d806587d24c92dfe0850c1b942656');
-            const LUV = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/LUV?limit=40&apikey=d03d806587d24c92dfe0850c1b942656');
-            const ALK = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/ALK?limit=40&apikey=d03d806587d24c92dfe0850c1b942656');
-            const JBLU = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/JBLU?limit=40&apikey=d03d806587d24c92dfe0850c1b942656');
+            const apiKey = 'd03d806587d24c92dfe0850c1b942656';
+
+            const AAL = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/AAL?limit=40&apikey=' + apiKey);
+            const UAL = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/UAL?limit=40&apikey=' + apiKey);
+            const DAL = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/DAL?limit=40&apikey=' + apiKey);
+            const LUV = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/LUV?limit=40&apikey=' + apiKey);
+            const ALK = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/ALK?limit=40&apikey=' + apiKey);
+            const JBLU = await api.get('https://financialmodelingprep.com/api/v3/key-metrics-ttm/JBLU?limit=40&apikey=' + apiKey);
 
             // Market Caps
             //Pull the American Airlines Market Cap and set it for return in the Fragment
@@ -208,9 +208,6 @@ function Metrics () {
             let aalDY = (aalDYr * 100).toFixed(2) + "%";
             setAALDY(aalDY);
             //Pull the United Airlines Dividend Yield and set it for return in the Fragment
-            let ualDYr = UAL.data[0].dividendYieldTTM;
-            let ualDY = (ualDYr * 100).toFixed(2) + "%";
-            setUALDY(ualDY);
             //Pull the Delta Airlines Dividend Yield and set it for return in the Fragment
             let dalDYr = DAL.data[0].dividendYieldTTM;
             let dalDY = (dalDYr * 100).toFixed(2) + "%";
@@ -223,10 +220,6 @@ function Metrics () {
             let alkDYr = ALK.data[0].dividendYieldTTM;
             let alkDY = (alkDYr * 100).toFixed(2) + "%";
             setALKDY(alkDY);
-            //Pull the JetBlue Airlines Dividend Yield and set it for return in the Fragment
-            let jbluDYr = JBLU.data[0].dividendYieldTTM;
-            let jbluDY = (jbluDYr * 100).toFixed(2) + "%";
-            setJBLUDY(jbluDY);
 
         };
         fetchData();
@@ -239,87 +232,91 @@ function Metrics () {
                     <div className="row">
                         <div className="col">
                             <div className="sectionTitle">Airline Metrics</div>
+                            <div className="sectionSubtitle">(Trailing Twelve Months)</div>
                             <div className="">
-
-
-                                    <table className="metrics">
-                                        <thead>
+                                {/*New Table*/}
+                                <table className="metrics2">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Market Cap</th>
+                                        <th>P/E Ratio</th>
+                                        <th>Enterprise Value</th>
+                                        <th>Price to Free Cash Flow</th>
+                                        <th>Price to Sales Ratio</th>
+                                        <th>Price to Book Ratio</th>
+                                        <th>Dividend Yield %</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
                                         <tr>
-                                            <th></th>
-                                            <th>American</th>
-                                            <th>United</th>
-                                            <th>Delta</th>
-                                            <th>Southwest</th>
-                                            <th>Alaska</th>
-                                            <th>JetBlue</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <th>Market Cap</th>
-                                            <td>{aalMC}</td>
-                                            <td>{ualMC}</td>
-                                            <td>{dalMC}</td>
-                                            <td>{swalMC}</td>
+                                            <td>Alaska Airlines</td>
                                             <td>{alkMC}</td>
-                                            <td>{jbluMC}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>P/E Ratio</th>
-                                            <td>{aalPE}</td>
-                                            <td>{ualPE}</td>
-                                            <td>{dalPE}</td>
-                                            <td>{swalPE}</td>
                                             <td>{alkPE}</td>
-                                            <td>{jbluPE}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Enterprise Value</th>
-                                            <td>{aalEV}</td>
-                                            <td>{ualEV}</td>
-                                            <td>{dalEV}</td>
-                                            <td>{swalEV}</td>
                                             <td>{alkEV}</td>
-                                            <td>{jbluEV}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Price to Free Cash Flow</th>
-                                            <td>{aalPFCF}</td>
-                                            <td>{ualPFCF}</td>
-                                            <td>{dalPFCF}</td>
-                                            <td>{swalPFCF}</td>
                                             <td>{alkPFCF}</td>
-                                            <td>{jbluPFCF}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Price to Sales Ratio</th>
-                                            <td>{aalPTS}</td>
-                                            <td>{ualPTS}</td>
-                                            <td>{dalPTS}</td>
-                                            <td>{swalPTS}</td>
                                             <td>{alkPTS}</td>
-                                            <td>{jbluPTS}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Price to Book Ratio</th>
-                                            <td>{aalPTB}</td>
-                                            <td>{ualPTB}</td>
-                                            <td>{dalPTB}</td>
-                                            <td>{swalPTB}</td>
                                             <td>{alkPTB}</td>
-                                            <td>{jbluPTB}</td>
+                                            <td>{alkDY}</td>
                                         </tr>
                                         <tr>
-                                            <th>Dividend Yield %</th>
+                                            <td>American Airlines</td>
+                                            <td>{aalMC}</td>
+                                            <td>{aalPE}</td>
+                                            <td>{aalEV}</td>
+                                            <td>{aalPFCF}</td>
+                                            <td>{aalPTS}</td>
+                                            <td>{aalPTB}</td>
                                             <td>{aalDY}</td>
-                                            <td>{ualDY}</td>
-                                            <td>{dalDY}</td>
-                                            <td>{swalDY}</td>
-                                            <td>{alkDY}</td>
-                                            <td>{jbluDY}</td>
                                         </tr>
-                                        </tbody>
-                                    </table>
+                                        <tr>
+                                            <td>Delta Airlines</td>
+                                            <td>{dalMC}</td>
+                                            <td>{dalPE}</td>
+                                            <td>{dalEV}</td>
+                                            <td>{dalPFCF}</td>
+                                            <td>{dalPTS}</td>
+                                            <td>{dalPTB}</td>
+                                            <td>{dalDY}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>JetBlue Airlines</td>
+                                            <td>{jbluMC}</td>
+                                            <td>{jbluPE}</td>
+                                            <td>{jbluEV}</td>
+                                            <td>{jbluPFCF}</td>
+                                            <td>{jbluPTS}</td>
+                                            <td>{jbluPTB}</td>
+                                            <td>None</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Southwest Airlines</td>
+                                            <td>{swalMC}</td>
+                                            <td>{swalPE}</td>
+                                            <td>{swalEV}</td>
+                                            <td>{swalPFCF}</td>
+                                            <td>{swalPTS}</td>
+                                            <td>{swalPTB}</td>
+                                            <td>{swalDY}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>United Airlines</td>
+                                            <td>{ualMC}</td>
+                                            <td>{ualPE}</td>
+                                            <td>{ualEV}</td>
+                                            <td>{ualPFCF}</td>
+                                            <td>{ualPTS}</td>
+                                            <td>{ualPTB}</td>
+                                            <td>None</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+
+
+
 
                             </div>
                         </div>

@@ -64,6 +64,11 @@
   color: black;
   font-size: 50px;
 }
+.sectionSubtitle {
+  text-align: center;
+  color: black;
+  font-size: 30px;
+}
 footer {
   margin-top: 10px;
   text-align: center;
@@ -84,11 +89,7 @@ footer {
   color: black;
 }
 .quote {
-  text-align: center;
-  margin-top: 10%;
-}
-.metrics {
-
+  padding: 15%;
 }
 .metrics thead tr th {
   padding: 6px;
@@ -129,4 +130,52 @@ table {
 }
 .headline {
   font-weight: bold;
+}
+.newsBorder {
+  margin-bottom: 5%x;
+}
+.black {
+  color: black;
+}
+.grey {
+  color: gray;
+}
+#aalChange, #aalChangePer {
+  color: green;
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-right: 1rem;
+}
+#alkChange, #alkChangePer {
+  color: green;
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-right: 1rem;
+}
+#dalChange, #dalChangePer {
+  color: green;
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-right: 1rem;
+}
+#blueChange, #blueChangePer {
+  color: green;
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-right: 1rem;
+}
+#swChange, #swChangePer {
+  color: green;
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-right: 1rem;
+}
+#ualChange, #ualChangePer {
+  color: green;
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-right: 1rem;
+}
+.smaller {
+  max-height: 30rem;
 }

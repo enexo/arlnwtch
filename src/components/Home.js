@@ -32,7 +32,9 @@ function Home () {
     useEffect(() => {
         const fetchData = async () => {
             //pull the news stories
-            const news = await api.get('https://financialmodelingprep.com/api/v3/stock_news?tickers=ALLl,UAL,DAL,LUV,ALK,JBLU&limit=50&apikey=d03d806587d24c92dfe0850c1b942656');
+            const apiKey = 'd03d806587d24c92dfe0850c1b942656';
+
+            const news = await api.get('https://financialmodelingprep.com/api/v3/stock_news?tickers=ALLl,UAL,DAL,LUV,ALK,JBLU&limit=50&apikey=' + apiKey);
 
             //News
             //Pull the First Post's Data
@@ -86,40 +88,48 @@ function Home () {
                             <div className="newsBorder">
                                 <article className="infoDump">
                                     <div className="row">
-                                        <h1 className="articleTitle"><a href="{firstURL}">{firstTitle}</a></h1>
+                                        <h1 className="articleTitle"><a href={firstURL}>{firstTitle}</a></h1>
                                     </div>
                                     <div className="row">
-                                        <blockquote className="articleText">"{firstText}" ({firstSource})</blockquote>
-                                    </div>
-                                </article>
-                            </div>
-                            <div className="newsBorder">
-                                <article className="infoDump">
-                                    <div className="row">
-                                        <h1 className="articleTitle"><a href="{secondURL}">{secondTitle}</a></h1>
-                                    </div>
-                                    <div className="row">
-                                        <blockquote className="articleText">"{secondText}" ({secondSource})</blockquote>
+                                        <a href={firstURL} className="black">
+                                            <blockquote className="articleText">"{firstText}" ({firstSource})</blockquote>
+                                        </a>
                                     </div>
                                 </article>
                             </div>
                             <div className="newsBorder">
                                 <article className="infoDump">
                                     <div className="row">
-                                        <h1 className="articleTitle"><a href="{thirdURL}">{thirdTitle}</a></h1>
+                                        <h1 className="articleTitle"><a href={secondURL}>{secondTitle}</a></h1>
                                     </div>
                                     <div className="row">
-                                        <blockquote className="articleText">"{thirdText}" ({thirdSource})</blockquote>
+                                        <a href={secondURL} className="black">
+                                            <blockquote className="articleText">"{secondText}" ({secondSource})</blockquote>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+                            <div className="newsBorder">
+                                <article className="infoDump">
+                                    <div className="row">
+                                        <h1 className="articleTitle"><a href={thirdURL}>{thirdTitle}</a></h1>
+                                    </div>
+                                    <div className="row">
+                                        <a href={thirdURL} className="black">
+                                            <blockquote className="articleText">"{thirdText}" ({thirdSource})</blockquote>
+                                        </a>
                                     </div>
                                 </article>
                             </div>
                             <div className="newsBorder mb-5">
                                 <article className="infoDump">
                                     <div className="row">
-                                        <h1 className="articleTitle"><a href="{fourthURL}">{fourthTitle}</a></h1>
+                                        <h1 className="articleTitle"><a href={fourthURL}>{fourthTitle}</a></h1>
                                     </div>
                                     <div className="row">
-                                        <blockquote className="articleText">"{fourthText}" ({fourthSource})</blockquote>
+                                        <a href={fourthURL} className="black">
+                                            <blockquote className="articleText">"{fourthText}" ({fourthSource})</blockquote>
+                                        </a>
                                     </div>
                                 </article>
                             </div>
@@ -127,7 +137,6 @@ function Home () {
                     </div>
                 </div>
             </div>
-            <footer>Terms of Use</footer>
         </div>
     )
 }
