@@ -15,7 +15,7 @@ function About() {
                         <div className="newsBorder">
                             <div className="about">This project is a coding exercise in ReactJS and Javascript JSON API.
                                 This should not be used for investment purposes.  This site is maintained by
-                                <a href="http://nathanorlowski.com">Nathan Orlowski</a>.
+                                <a href="http://nathanorlowski.com"> Nathan Orlowski</a>.
                                 He is deeply grateful for the <a href="https://financialmodelingprep.com/developer/docs/">
                                 Data provided by Financial Modeling Prep</a>.</div>
                         </div>

@@ -6,12 +6,6 @@
   height: 40vmin;
   pointer-events: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -36,146 +30,118 @@
   }
 }
 
-.homePic {
-  background-image: url("img/airplane-1.jpg");
+
+/*New Site CSS*/
+:root {
+  --myyellow: #e6df0b;
+  --mybrown: #AA8A1D;
+  --darkPurple: #8A1DAA;
+  --mygreen: #1DAA8A;
 }
-.newsBorder {
-  background: rgba(255,255,255,0.5);
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  box-shadow: 0px 6px 4px rgba(0,0,0,0.25);
-  border-radius: 25px;
-  margin-top: 25px;
-}
-.infoDump {
-  margin: 25px 50px;
-}
-.articleTitle {
-  font-size: 24px;
-}
-.articleTitle a {
+a {
   color: black;
+  text-decoration: none;
+}
+
+#navFirst {
+  color: white;
+  font-weight: 700;
+}
+#navSecond {
+  color: white;
+  font-weight: 700;
+}
+.navbar-dark {
+  background-color: var(--mybrown) !important;
+}
+.backgroundContainer {
+  background-color: var(--mybrown) !important;
+}
+.subHeader {
+  color: #6F6F6F;
+}
+.heroBtn {
+  background-color: var(--mygreen);
+  border-radius: 25px;
+  width: 152px;
+  height: 45px;
+}
+.heroBtn a {
+  color: var(--myteal);
+  list-style: none;
+}
+.newsHeadline {
+  font-size: 3rem;
+}
+article span a {
+  font-size: 24px;
+  line-height: 24px;
 }
 .articleText {
-  margin: 0% 5%;
+  margin: 2em;
+}
+.airline {
+  font-size: large;
+  font-weight: bold;
+}
+.nav-item a {
+  display: inline-block;
+}
+.articleTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+article button {
+  font-weight: 700;
+  color: white;
+  background-color: var(--mygreen);
+  border: none;
+  border-radius: 25px;
+  padding: 1rem;
+}
+.newsPicture {
+  border-radius: 25px;
+}
+li {
+  list-style: none;
+}
+.mAirline {
+  text-align: center;
+}
+.metric p {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.metric {
+  border: 5px solid var(--mygreen);
+  border-radius: 25px;
+  margin-top: 10px;
+  padding: 5px;
+}
+.metric h6 {
+  text-align: center;
+}
+.asAirline span {
+  margin: 5px;
+}
+.asSection a {
+  color: black;
+}
+.bull {
+  border-radius: 25px;
 }
 .sectionTitle {
   text-align: center;
-  color: black;
-  font-size: 50px;
-}
-.sectionSubtitle {
-  text-align: center;
-  color: black;
-  font-size: 30px;
-}
-footer {
-  margin-top: 10px;
-  text-align: center;
-  color: black;
-  font-size: 14px;
-}
-.quotesPic {
-  background-image: url("img/quotes-airplane.jpg");
-}
-.price {
-  font-weight: bold;
-  font-size: 48px;
-  color: black;
-}
-.change {
-  font-weight: bold;
-  font-size: 48px;
-  color: black;
-}
-.quote {
-  padding: 15%;
-}
-.metrics thead tr th {
-  padding: 6px;
-  border: 1px solid #ccc;
-  text-align: left;
-}
-.metrics tr th {
-  background: #333;
-  color: white;
-  font-weight: bold;
-}
-.metrics tbody tr td {
-  text-align: center;
-}
-tbody tr:nth-of-type(odd)  {
-  background: #eee;
-}
-.aboutPic {
-  background-image: url("img/aboutPic.jpg");
-  min-height: 1000px;
-}
-.about {
-  color: black;
-  margin: 10%;
-}
-.about a {
-  color: black;
-}
-table {
-  background: rgba(255,255,255,0.5);
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  box-shadow: 0px 6px 4px rgba(0,0,0,0.25);
-  border-radius: 25px;
-  margin-top: 25px;
-  width: 100%;
-  border-collapse: collapse;
-}
-.headline {
+  font-size: 2rem;
   font-weight: bold;
 }
 .newsBorder {
-  margin-bottom: 5%x;
+  border: 5px solid var(--mybrown);
+  padding: 1rem;
+  border-radius: 25px;
 }
-.black {
-  color: black;
-}
-.grey {
-  color: gray;
-}
-#aalChange, #aalChangePer {
-  color: green;
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-right: 1rem;
-}
-#alkChange, #alkChangePer {
-  color: green;
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-right: 1rem;
-}
-#dalChange, #dalChangePer {
-  color: green;
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-right: 1rem;
-}
-#blueChange, #blueChangePer {
-  color: green;
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-right: 1rem;
-}
-#swChange, #swChangePer {
-  color: green;
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-right: 1rem;
-}
-#ualChange, #ualChangePer {
-  color: green;
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-right: 1rem;
-}
-.smaller {
-  max-height: 30rem;
+#hero {
+  margin: 3rem 0;
 }

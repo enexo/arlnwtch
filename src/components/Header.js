@@ -19,19 +19,19 @@ const NavItem = props => {
 class Navigation extends React.Component {
     render() {
         return (
-            <div className="container">
-                <nav className="navbar navbar-expand-lg navbar-light cheeriness">
-                    <a className="navbar-brand" href="/">Airline Watch</a>
-
-                    <ul className="navbar-nav mr-auto">
-
-                        <NavItem path="/" name="Home" />
-                        <NavItem path="/quotes" name="Quotes" />
-                        <NavItem path="/metrics" name="Metrics" />
-                        <NavItem path="/about" name="About" />
-                    </ul>
-
-                </nav>
+            <div className="container-fluid backgroundContainer">
+                <div className="container">
+                    <nav className="navbar navbar-expand-lg navbar-dark">
+                        <a className="navbar-brand" href="/"><span id="navFirst">Airline</span><span id="navSecond">Stocks</span></a>
+                        <ul className="navbar-nav mr-auto">
+                            <NavItem path="/" name="Home" />
+                            <NavItem path="/news" name="News" />
+                            <NavItem path="/quotes" name="Quotes" />
+                            <NavItem path="/metrics" name="Metrics" />
+                            <NavItem path="/about" name="About" />
+                        </ul>
+                    </nav>
+                </div>
             </div>
         )
     }

@@ -1,141 +1,44 @@
-import React, {useEffect, useState} from "react";
-import api from "../api";
+import React, {} from "react";
+import heroPic from "../img/goingUP.png";
+import quotes from "../img/quotes.jpeg";
+import metrics from "../img/metrics.jpeg";
 
 function Home () {
 
-    //First Article useStates
-    const [firstTitle,setfirstTitle] = useState('Loading...');
-    const [firstSource,setfirstSource] = useState('Loading...');
-    const [firstText,setfirstText] = useState('Loading...');
-    // eslint-disable-next-line
-    const [firstURL,setfirstURL] = useState('Loading...');
-    //Second Article useStates
-    const [secondTitle,setsecondTitle] = useState('Loading...');
-    const [secondSource,setsecondSource] = useState('Loading...');
-    const [secondText,setsecondText] = useState('Loading...');
-    // eslint-disable-next-line
-    const [secondURL,setsecondURL] = useState('Loading...');
-    //Third Article useStates
-    const [thirdTitle,setthirdTitle] = useState('Loading...');
-    const [thirdSource,setthirdSource] = useState('Loading...');
-    const [thirdText,setthirdText] = useState('Loading...');
-    // eslint-disable-next-line
-    const [thirdURL,setthirdURL] = useState('Loading...');
-    //Fourth Article useStates
-    const [fourthTitle,setfourthTitle] = useState('Loading...');
-    const [fourthSource,setfourthSource] = useState('Loading...');
-    const [fourthText,setfourthText] = useState('Loading...');
-    // eslint-disable-next-line
-    const [fourthURL,setfourthURL] = useState('Loading...');
-    
-    // Data Pulls
-    useEffect(() => {
-        const fetchData = async () => {
-            //pull the news stories
-            const apiKey = 'd03d806587d24c92dfe0850c1b942656';
-
-            const news = await api.get('https://financialmodelingprep.com/api/v3/stock_news?tickers=ALLl,UAL,DAL,LUV,ALK,JBLU&limit=50&apikey=' + apiKey);
-
-            //News
-            //Pull the First Post's Data
-            let firstTitle = news.data[0].title;
-            setfirstTitle(firstTitle);
-            let firstSource = news.data[0].site;
-            setfirstSource(firstSource);
-            let firstText = news.data[0].text;
-            setfirstText(firstText);
-            let firstURL = news.data[0].url;
-            setfirstURL(firstURL);
-            //Pull the Second Post's Data
-            let secondTitle = news.data[1].title;
-            setsecondTitle(secondTitle);
-            let secondSource = news.data[1].site;
-            setsecondSource(secondSource);
-            let secondText = news.data[1].text;
-            setsecondText(secondText);
-            let secondURL = news.data[1].url;
-            setsecondURL(secondURL);
-            //Pull the Third Post's Data
-            let thirdTitle = news.data[2].title;
-            setthirdTitle(thirdTitle);
-            let thirdSource = news.data[2].site;
-            setthirdSource(thirdSource);
-            let thirdText = news.data[2].text;
-            setthirdText(thirdText);
-            let thirdURL = news.data[2].url;
-            setthirdURL(thirdURL);
-            //Pull the Fourth Post's Data
-            let fourthTitle = news.data[3].title;
-            setfourthTitle(fourthTitle);
-            let fourthSource = news.data[3].site;
-            setfourthSource(fourthSource);
-            let fourthText = news.data[3].text;
-            setfourthText(fourthText);
-            let fourthURL = news.data[3].url;
-            setfourthURL(fourthURL);
-            
-        };
-        fetchData();
-    }, []);
-
     return (
         <div>
-            <div className="container-fluid homePic img-fluid">
-                <div className="container">
-                    <div className="row">
-                        <div className="col">
-                            <div className="sectionTitle">Airline News</div>
-                            <div className="newsBorder">
-                                <article className="infoDump">
-                                    <div className="row">
-                                        <h1 className="articleTitle"><a href={firstURL}>{firstTitle}</a></h1>
-                                    </div>
-                                    <div className="row">
-                                        <a href={firstURL} className="black">
-                                            <blockquote className="articleText">"{firstText}" ({firstSource})</blockquote>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-                            <div className="newsBorder">
-                                <article className="infoDump">
-                                    <div className="row">
-                                        <h1 className="articleTitle"><a href={secondURL}>{secondTitle}</a></h1>
-                                    </div>
-                                    <div className="row">
-                                        <a href={secondURL} className="black">
-                                            <blockquote className="articleText">"{secondText}" ({secondSource})</blockquote>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-                            <div className="newsBorder">
-                                <article className="infoDump">
-                                    <div className="row">
-                                        <h1 className="articleTitle"><a href={thirdURL}>{thirdTitle}</a></h1>
-                                    </div>
-                                    <div className="row">
-                                        <a href={thirdURL} className="black">
-                                            <blockquote className="articleText">"{thirdText}" ({thirdSource})</blockquote>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-                            <div className="newsBorder mb-5">
-                                <article className="infoDump">
-                                    <div className="row">
-                                        <h1 className="articleTitle"><a href={fourthURL}>{fourthTitle}</a></h1>
-                                    </div>
-                                    <div className="row">
-                                        <a href={fourthURL} className="black">
-                                            <blockquote className="articleText">"{fourthText}" ({fourthSource})</blockquote>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
+            <div className="container-sm">
+                <section id="hero">
+                <div className="row">
+                    <div className="col">
+                        <h1>Now Boarding the Airline Industry</h1>
+                        <p className="subHeader">News, Stock Quotes and More from the largest airlines in the United States.</p>
+                        <button className="heroBtn"><a href="/news">Latest News</a></button>
+                    </div>
+                    <div className="col d-none d-lg-block">
+                        <img src={heroPic} alt="airplane" className="img-fluid"/>
                     </div>
                 </div>
+                </section>
+                <section id="application">
+                    <div className="row my-5">
+                        <div className="col d-none d-lg-block">
+                            <h3>Powering smarter decisions</h3>
+                            <img src={quotes} alt="quotes" className="img-fluid"/>
+                        </div>
+                        <div className="col align-self-center">
+                            <h2>Get Live Quotes on the Six Largest Airlines</h2>
+                        </div>
+                    </div>
+                    <div className="row my-5">
+                        <div className="col d-none d-lg-block">
+                            <img src={metrics} alt="metrics" className="img-fluid"/>
+                        </div>
+                        <div className="col align-self-center">
+                            <h2>Get Company Performance Metrics</h2>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     )
